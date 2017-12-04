@@ -3,7 +3,6 @@ package com.enderecorest.service.impl;
 import com.enderecorest.dao.DAO;
 import com.enderecorest.model.CEP;
 import com.enderecorest.service.CEPService;
-
 import com.enderecorest.service.GenericCRUDRestService;
 import java.util.List;
 import javax.annotation.ManagedBean;

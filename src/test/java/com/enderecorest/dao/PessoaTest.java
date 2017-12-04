@@ -25,31 +25,25 @@ import org.junit.runner.RunWith;
 @AdditionalClasses(PessoaDAOImpl.class)
 public class PessoaTest {
             
+    @Inject 
+    public Logradouro logradouro;
+    
     private static Pessoa WILLIAMSENA;
     static{
         WILLIAMSENA = new Pessoa("00000000000","000000000","William","Basseto Sena", "williamsena13@gmail.com",new Date() , null );
     }//static{ WILLIAMSENA }
-    
-    private static final Pessoa FERNANDOPASCHOALETTO;
-    static{
-        FERNANDOPASCHOALETTO = new Pessoa("00000000001","000000001","Fernando","Paschoaletto", "paschoaletto@gmail.com",new Date(), null);
-    }//static{ FERNANDOPASCHOALETTO }
-    
-    private static final Pessoa EDUARDOSENA;
-    static{
-        EDUARDOSENA = new Pessoa("00000000002","000000002","Eduardo","Sena", "email@gmail.com",new Date(), null);
-    }//static{ EDUARDOSENA }
-    
+
     @Inject
     private PessoaDAO pessoaDAO;
-    
+
     @Test
-    public void injectionTest(){
+    public void injectionTest() {
         Assert.assertNotNull(pessoaDAO);
     }
+
     @Test
     public void saveTest() {
-        List<Pessoa> pessoas = pessoaDAO.findByNome( WILLIAMSENA.getNome());
+        List<Pessoa> pessoas = pessoaDAO.findByNome(WILLIAMSENA.getNome());
         if (pessoas == null || pessoas.isEmpty()) {
             pessoaDAO.save(WILLIAMSENA);
         }
@@ -57,8 +51,6 @@ public class PessoaTest {
         pessoas = pessoaDAO.findByNome(WILLIAMSENA.getNome());
         Assert.assertNotNull(pessoas);
         Assert.assertFalse(pessoas.isEmpty());
-        
     }
-    
     
 }/* PessoaTest() */
